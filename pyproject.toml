@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vastlint"
+dynamic = ["version"]
+description = "In-process Python bindings for vastlint VAST XML validation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Alex Sekowski", email = "alex@vastlint.org" }]
+keywords = ["vast", "iab", "adtech", "video", "linter", "validation", "xml"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://vastlint.org"
+Documentation = "https://vastlint.org/docs/rules"
+Source = "https://github.com/aleksUIX/vastlint-python"
+Changelog = "https://github.com/aleksUIX/vastlint-python/releases"
+
+[tool.hatch.version]
+path = "src/vastlint/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vastlint"]
+artifacts = [
+    "src/vastlint/native/**/*.dylib",
+    "src/vastlint/native/**/*.so",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/vastlint",
+    "scripts",
+    "tests",
+    "README.md",
+    "LICENSE",
+]

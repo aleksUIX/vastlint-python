@@ -1,0 +1,21 @@
+# build artifacts
+/dist/
+/build/
+*.egg-info/
+.eggs/
+
+# NOTE: vendored native libraries under src/vastlint/native/ ARE committed
+# (same as the Ruby gem) so a fresh clone builds offline. Refresh them with
+# scripts/fetch-libs.sh <tag>.
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# os
+.DS_Store
