@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 import pytest
@@ -9,8 +10,16 @@ VALID = (FIXTURES / "valid.xml").read_text()
 INVALID = (FIXTURES / "invalid.xml").read_text()
 
 
-def test_version_matches_package():
-    assert vastlint.version() == vastlint.__version__
+def test_version_reports_core_engine():
+    # version() reports the bundled vastlint-core engine version, which is
+    # released independently of this binding's package version (__version__),
+    # so the two need not be equal. Just assert it is a sane version string.
+    v = vastlint.version()
+    assert isinstance(v, str) and re.match(r"^\d+\.\d+\.\d+", v), v
+
+
+def test_package_version_is_semver():
+    assert re.match(r"^\d+\.\d+\.\d+", vastlint.__version__)
 
 
 def test_valid_tag_is_clean():
