@@ -114,6 +114,20 @@ result = vastlint.validate(
 
 `Result` exposes `.version`, `.issues` (list of `Issue`), `.summary` (`Summary`), `.valid`, `.to_dict()`, and `.to_json()`. All result types are frozen dataclasses.
 
+## Performance
+
+Validation runs in-process against the Rust core, so per-tag cost is dominated by the core, not by Python. Numbers below are single-core, single-threaded, and include the full Python round trip (FFI call, JSON result, parse into dataclasses), so they reflect what a caller actually sees.
+
+| Tag size | Median latency | Throughput (1 core) |
+| --- | --- | --- |
+| 7 KB | 86 µs | ~11,000 tags/sec |
+| 17 KB | 0.36 ms | ~2,800 tags/sec |
+| 23 KB | 0.57 ms | ~1,700 tags/sec |
+| 44 KB | 2.1 ms | ~470 tags/sec |
+| 347 KB | 4.7 ms | ~210 tags/sec |
+
+Measured on an Apple M4, single core, 200 tags per size bucket, warm. Production tags typically run 17 to 44 KB. Each validation is independent and holds no shared state, so throughput scales close to linearly across cores with a process pool. Reproduce with `scripts/bench.py`.
+
 ## Native library layout
 
 Vendored release libraries live at:
