@@ -2,7 +2,7 @@
 
 High-performance, in-process VAST XML validation for Python backends.
 
-**Rule reference:** [vastlint.org/docs/rules](https://vastlint.org/docs/rules/) · **Web validator:** [vastlint.org/validate](https://vastlint.org/validate)
+**Rule reference:** [vastlint.org/docs/rules](https://vastlint.org/docs/rules/) · **Web validator:** [vastlint.org/validate](https://vastlint.org/validate) · **Test a live tag URL:** [vastlint.org/tester](https://vastlint.org/tester/) · **Inspect wrapper chains:** [vastlint.org/inspect](https://vastlint.org/inspect/)
 
 This package wraps the stable `vastlint-ffi` C API, backed by the same Rust core used by the CLI, Go binding, Ruby gem, Erlang NIF, MCP server, and web validator. The intended use case is a DSP, SSP, ad server, or trafficking backend that needs to validate VAST XML and return structured linting results to a frontend.
 
