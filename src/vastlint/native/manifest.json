@@ -1,0 +1,30 @@
+{
+  "engine_repository": "https://github.com/aleksUIX/vastlint",
+  "engine_version": "0.16.0",
+  "files": [
+    {
+      "path": "darwin_arm64/libvastlint.dylib",
+      "sha256": "dea4447e9a03d9cd5d9ac75b4bf8ebe79b1f10753f1e7f7621bcda620b839ae9",
+      "source_url": "https://github.com/aleksUIX/vastlint/releases/download/v0.16.0/vastlint-ffi-macos-aarch64.tar.gz",
+      "archive_sha256": "2dc43de041a6c0c9e1d2de26d912b6f73d5fe07e2f8b45b9dbcc61ec5537a82f"
+    },
+    {
+      "path": "darwin_amd64/libvastlint.dylib",
+      "sha256": "560400639660c5a2057fbd4b8edfec84888520ab182c98838ff7fe7d2748c160",
+      "source_url": "https://github.com/aleksUIX/vastlint/releases/download/v0.16.0/vastlint-ffi-macos-x86_64.tar.gz",
+      "archive_sha256": "f58de65811f4697ce5782fb9ec996ddce68dd300c6da267eeebae2b12eefd2a5"
+    },
+    {
+      "path": "linux_arm64/libvastlint.so",
+      "sha256": "1e6f75158da2cb92417038081963cf80d29588980e86b668f7c7de742dca43e6",
+      "source_url": "https://github.com/aleksUIX/vastlint/releases/download/v0.16.0/vastlint-ffi-linux-aarch64.tar.gz",
+      "archive_sha256": "2c980a7898356dc160bd8202f09e75a841511283d4a2747c20079b6dd8935ed2"
+    },
+    {
+      "path": "linux_amd64/libvastlint.so",
+      "sha256": "24fba8b0faf5d15365837dc2b77df753f1ec8b3f10210a4e88e869a523e59c2e",
+      "source_url": "https://github.com/aleksUIX/vastlint/releases/download/v0.16.0/vastlint-ffi-linux-x86_64.tar.gz",
+      "archive_sha256": "e808c072d99faea3a0903c4683953e87ecbd9c890c82094e22ee7464a2b7b614"
+    }
+  ]
+}

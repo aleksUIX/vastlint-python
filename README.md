@@ -139,6 +139,10 @@ Validation runs in-process against the Rust core, so per-tag cost is dominated b
 
 Measured on an Apple M4, single core, 200 tags per size bucket, warm. Production tags typically run 17 to 44 KB. Each validation is independent and holds no shared state, so throughput scales close to linearly across cores with a process pool. Reproduce with `scripts/bench.py`.
 
+## Engine version and build verification
+
+`core-version.txt` records the bundled public engine release. The native `manifest.json` records each file's SHA-256 and release URL. The binding's package version and engine version are reported separately. Refresh all four platform libraries with `bash scripts/fetch-libs.sh`, or pass an explicit engine tag. Run `python3 scripts/check-native.py` before packaging. No sibling checkout is required for the bundled runtime.
+
 ## Native library layout
 
 Vendored release libraries live at:
@@ -151,7 +155,7 @@ Vendored release libraries live at:
 They come from the `vastlint-ffi-*` tarballs attached to each `vastlint` GitHub Release. Refresh them with:
 
 ```sh
-./scripts/fetch-libs.sh v0.4.14
+bash scripts/fetch-libs.sh
 ```
 
 ## License

@@ -46,4 +46,5 @@ include = [
     "README.md",
     "LICENSE",
     "NOTICE",
+    "core-version.txt",
 ]
