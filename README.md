@@ -1,5 +1,7 @@
 # vastlint (Python)
 
+Created by [Aleksander Sekowski](https://github.com/aleksUIX).
+
 High-performance, in-process VAST XML validation for Python backends.
 
 **Rule reference:** [vastlint.org/docs/rules](https://vastlint.org/docs/rules/) · **Web validator:** [vastlint.org/validate](https://vastlint.org/validate) · **Test a live tag URL:** [vastlint.org/tester](https://vastlint.org/tester/) · **Inspect wrapper chains:** [vastlint.org/inspect](https://vastlint.org/inspect/)

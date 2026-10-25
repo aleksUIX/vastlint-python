@@ -9,8 +9,8 @@ description = "In-process Python bindings for vastlint VAST XML validation"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
-license-files = ["LICENSE"]
-authors = [{ name = "Alex Sekowski", email = "alex@vastlint.org" }]
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Aleksander Sekowski", email = "alex@vastlint.org" }]
 keywords = ["vast", "iab", "adtech", "video", "linter", "validation", "xml"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -45,4 +45,5 @@ include = [
     "tests",
     "README.md",
     "LICENSE",
+    "NOTICE",
 ]
