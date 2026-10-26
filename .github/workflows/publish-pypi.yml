@@ -33,10 +33,23 @@ jobs:
             VERSION="${TAG#v}"
           else
             VERSION="$(python -c 'import re,pathlib; print(re.search(r"\"([^\"]+)\"", pathlib.Path("src/vastlint/_version.py").read_text()).group(1))')"
-            TAG="v${VERSION}"
           fi
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
-          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          ENGINE_TAG="v$(cat core-version.txt)"
+          echo "tag=${ENGINE_TAG}" >> "$GITHUB_OUTPUT"
+
+      - name: Stamp package version from the release tag
+        env:
+          PACKAGE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          python - <<'PYVERSION'
+          import os,re
+          from pathlib import Path
+          version = os.environ["PACKAGE_VERSION"]
+          if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+(?:[.-][A-Za-z0-9.-]+)?", version):
+              raise ValueError("invalid package version")
+          Path("src/vastlint/_version.py").write_text(f'__version__ = "{version}"\n')
+          PYVERSION
 
       - name: Vendor release libraries
         run: ./scripts/fetch-libs.sh "${{ steps.version.outputs.tag }}"
