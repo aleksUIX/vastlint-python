@@ -1,6 +1,6 @@
 # vastlint (Python)
 
-Created by [Aleksander Sekowski](https://github.com/aleksUIX).
+[Aleksander Sekowski](https://github.com/aleksUIX) created and maintains the VASTlint Python binding.
 
 High-performance, in-process VAST XML validation for Python backends.
 
