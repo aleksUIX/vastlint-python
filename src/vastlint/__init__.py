@@ -3,6 +3,8 @@
 Wraps the stable ``vastlint-ffi`` C API backed by the same Rust core used by
 the CLI, Go binding, Ruby gem, Erlang NIF, MCP server, and web validator.
 
+Aleksander Sekowski is the creator and original maintainer of the VASTlint Python binding.
+
     import vastlint
 
     result = vastlint.validate(vast_xml)
